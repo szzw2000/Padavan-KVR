@@ -29,7 +29,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: MI-MINI
+        TNAME: MSG1500
         KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
@@ -71,20 +71,20 @@ jobs:
         #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
         ######################################################################
         ##内网穿透
-        #echo "CONFIG_FIRMWARE_INCLUDE_NPC=y" >> .config 
-        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
-        echo "CONFIG_FIRMWARE_INCLUDE_FRPC=y" >> .config  #frpc
-        #echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #aliddns
+        #echo "CONFIG_FIRMWARE_INCLUDE_NPC=n" >> .config 
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
+        echo "CONFIG_FIRMWARE_INCLUDE_FRPC=n" >> .config  #frpc
+        #echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
         ##科学上网##
-        echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config
-        #echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config #mini太小，内置不进
-        #echo "CONFIG_FIRMWARE_INCLUDE_XRAY=y" >> .config #mini太小，内置不进
-        echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=y" >> .config #mini太小，内置不进
+        echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n" >> .config
+        #echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #mini太小，内置不进
+        #echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #mini太小，内置不进
+        echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=n" >> .config #mini太小，内置不进
         ##vpn
-        #echo  "CONFIG_FIRMWARE_INCLUDE_OPENVPN=y" >> .config
-        #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=y" >> .config
-        #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=y" >> .config
-        #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=y" >> .config
+        #echo  "CONFIG_FIRMWARE_INCLUDE_OPENVPN=n" >> .config
+        #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=n" >> .config
+        #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=n" >> .config
+        #echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=n" >> .config
         ###############################################################################
         ##########
         #自定义添加其它功能请参考源码configs/templates/目录下的config文件。按照上面的格式添加即可
